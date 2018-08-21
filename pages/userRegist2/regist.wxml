@@ -1,0 +1,28 @@
+<view>
+  <view>
+    <image class='login-img' src='../resource/images/dsp.jpg'></image>
+  </view>
+  <view>
+    <form bindsubmit='loginSubmit'>
+      <view class='inputView'>
+        <image class='nameImage' src='../resource/images/username.png'></image>
+        <text class='loginLabel'>账号</text>
+        <input class='inputText' name="username" placeholder='请输入账号'></input>
+      </view>
+
+      <view class='inputView'>
+        <image class='keyImage' src='../resource/images/password.png'></image>
+        <text class='loginLabel'>密码</text>
+        <input class='inputText' name="password" password="true" placeholder='请输入密码'></input>
+      </view>
+
+      <view>
+        <button class='loginBtn' form-type='submit' type="primary">注册</button>
+      </view>
+
+      <view>
+        <button class='loginBtn' type="warn" bindtap='goLogin'>返回登录</button>
+      </view>
+    </form>
+  </view>
+</view>

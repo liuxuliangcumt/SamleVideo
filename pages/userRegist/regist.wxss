@@ -1,0 +1,31 @@
+page {
+  background-color: whitesmoke;
+}
+.login-img{
+  width: 100%;
+}
+.inputView{
+  background-color: white;
+  margin: 15px;
+  height: 35px;
+ 
+}
+.nameImage,.keyImage{
+  width: 20px;
+  height: 20px;
+}
+.loginLabel{
+   margin: 15px 15px 15px 10px;
+  font-size: 15px;
+  color: gray;
+}
+.inputText{
+  float: right;
+  text-align: right;
+   
+}
+.loginBtn,.goLoginBtn{
+  width: 80%;
+  margin-top: 20px;
+}
+
