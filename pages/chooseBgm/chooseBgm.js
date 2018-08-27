@@ -19,16 +19,14 @@ Page({
         title: '请等待...',
       });
       var serverUrl = app.serverUrl;
-      var user = app.getGlobalUserInfo();
-      debugger;
+       
+       
       // 调用后端
       wx.request({
-        url: serverUrl + '/bgm/list',
+        url: serverUrl + 'video/bgmList',
         method: "POST",
         header: {
           'content-type': 'application/json', // 默认值
-          'headerUserId': user.id,
-          'headerUserToken': user.userToken
         },
         success: function (res) {
           console.log(res.data);
