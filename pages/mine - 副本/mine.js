@@ -396,7 +396,7 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        var myVideoList = res.data.data.rows;
+        var myVideoList = res.data.data;
         wx.hideLoading();
 
         var newVideoList = me.data.myVideoList;

@@ -46,8 +46,10 @@ Page({
         },
         success: function (res) {
           console.log(res.data);
+          console.log( res.data.data);
+          
           wx.hideLoading();
-          if (res.data.status == 1) {
+          if (res.data.status == 200) {
             // 登录成功跳转 
             wx.showToast({
               title: '登录成功',
@@ -56,7 +58,7 @@ Page({
             });
             // app.userInfo = res.data.data;
             // fixme 修改原有的全局对象为本地缓存
-            app.setGlobalUserInfo(res.data.message);
+            app.setGlobalUserInfo(res.data.data);
             // 页面跳转
 
             var redirectUrl = me.redirectUrl;

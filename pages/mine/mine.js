@@ -388,7 +388,7 @@ Page({
     // 调用后端
     var serverUrl = app.serverUrl;
     wx.request({
-      url: serverUrl + '/video/showAll/?page=' + page + '&pageSize=6',
+      url: serverUrl + 'video/showAll' ,//?page=' + page + '&pageSize=6',
       method: "POST",
       data: {
         userId: me.data.userId
@@ -398,7 +398,17 @@ Page({
       },
       success: function (res) {
         console.log(res.data);
-        
+        var myVideoList = res.data.data;
+        wx.hideLoading();
+        console.log(myVideoList);
+//  myVideoList: newVideoList.concat(myVideoList),  res.data.data.total
+        var newVideoList = me.data.myVideoList;
+        me.setData({
+          myVideoPage: page,
+          myVideoList: myVideoList,
+          myVideoTotal: res.data.data.total,
+          serverUrl: app.serverUrl
+        });
       }
     })
   },

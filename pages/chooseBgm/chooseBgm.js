@@ -19,14 +19,16 @@ Page({
         title: '请等待...',
       });
       var serverUrl = app.serverUrl;
-       
-       
+      var user = app.getGlobalUserInfo();
+      
       // 调用后端
       wx.request({
-        url: serverUrl + 'video/bgmList',
         method: "POST",
+        url: serverUrl + 'video/bgmList',
         header: {
           'content-type': 'application/json', // 默认值
+          'headerUserId': user.id,
+          'headerUserToken': user.userToken
         },
         success: function (res) {
           console.log(res.data);
@@ -79,7 +81,7 @@ Page({
       wx.uploadFile({
         url: serverUrl + '/video/upload',
         formData: {
-          userId: userInfo.id,    // fixme 原来的 app.userInfo.id
+          userId: userInfo.userId,    // fixme 原来的 app.userInfo.id
           bgmId: bgmId,
           desc: desc,
           videoSeconds: duration,
@@ -90,7 +92,7 @@ Page({
         name: 'file',
         header: {
           'content-type': 'application/json', // 默认值
-          'headerUserId': userInfo.id,
+          'headerUserId': userInfo.userId,
           'headerUserToken': userInfo.userToken
         },
         success: function (res) {
